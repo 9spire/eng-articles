@@ -1,5 +1,7 @@
 ---
 layout: default
+imagelink: 'https://unsplash.com/@florianolv?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText'
+imagecredit: Florian Olivo
 ---
 
 <!-- Page Header -->
@@ -17,9 +19,7 @@ layout: default
             {% if page.subtitle %}
             <h2 class="subheading">{{ page.subtitle }}</h2>
             {% endif %}
-            <span class="meta">Posted by
-              <a href="#">{% if page.author %}{{ page.author }}{% else %}{{ site.author }}{% endif %}</a>
-              on {{ page.date | date: '%B %d, %Y' }} &middot; {% include read_time.html
+            <span class="meta">Posted on {{ page.date | date: '%B %d, %Y' }} &middot; {% include read_time.html
               content=page.content %}
             </span>
           </div>
@@ -34,17 +34,25 @@ layout: default
 
         {{ content }}
 
+        {% if page.imagecredit %}
+          <div class="container">
+            <div class="row">
+              <a class="photocredit" href="{{ page.imagelink }}">Main photo by {{ page.imagecredit }}</a>
+            </div>
+          </div>
+        {% endif %}
+
         <hr>
 
         <div class="clearfix">
 
           {% if page.previous.url %}
           <a class="btn btn-primary float-left" href="{{ page.previous.url | prepend: site.baseurl | replace: '//', '/' }}" data-toggle="tooltip" data-placement="top" title="{{ page.previous.title }}">&larr; Previous<span class="d-none d-md-inline">
-              Post</span></a>
+              Article</span></a>
           {% endif %}
           {% if page.next.url %}
           <a class="btn btn-primary float-right" href="{{ page.next.url | prepend: site.baseurl | replace: '//', '/' }}" data-toggle="tooltip" data-placement="top" title="{{ page.next.title }}">Next<span class="d-none d-md-inline">
-              Post</span> &rarr;</a>
+              Article</span> &rarr;</a>
           {% endif %}
 
         </div>

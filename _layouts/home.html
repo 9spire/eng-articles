@@ -1,5 +1,7 @@
 ---
 layout: default
+imagelink: 'https://unsplash.com/@florianolv?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText'
+imagecredit: Florian Olivo
 ---
 
 <!-- Page Header -->
@@ -15,7 +17,7 @@ layout: default
           <div class="page-heading">
             <h1>{{ site.title }}</h1>
             {% if site.description %}
-            <span class="subheading">{{ site.description }}</span>
+            <h4 class="subheading">{{ site.description }}</h4>
             {% endif %}
           </div>
         </div>
@@ -41,13 +43,7 @@ layout: default
             <h3 class="post-subtitle">{{ post.excerpt | strip_html | truncatewords: 15 }}</h3>
             {% endif %}
           </a>
-          <p class="post-meta">Posted by
-            {% if post.author %}
-            {{ post.author }}
-            {% else %}
-            {{ site.author }}
-            {% endif %}
-            on
+          <p class="post-meta">Posted on
             {{ post.date | date: '%B %d, %Y' }} &middot; {% include read_time.html content=post.content %}            
           </p>
         </article>
@@ -58,9 +54,18 @@ layout: default
 
         <!-- Pager -->
         <div class="clearfix">
-          <a class="btn btn-primary float-right" href="{{"/posts" | relative_url }}">View All Posts &rarr;</a>
+          <a class="btn btn-primary float-right" href="{{"/posts" | relative_url }}">View All Articles &rarr;</a>
         </div>
+
 
       </div>
     </div>
   </div>
+  {% if page.imagecredit %}
+          <div class="container">
+            <div class="row">
+              <a class="photocredit" href="{{ page.imagelink }}">Main photo by {{ page.imagecredit }}</a>
+            </div>
+          </div>
+        {% endif %}
+  

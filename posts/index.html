@@ -1,7 +1,9 @@
 ---
 layout: page
-title: Posts
+title: Articles
 background: '/img/bg-post.jpg'
+imagelink: 'https://unsplash.com/@florianolv?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText'
+imagecredit: Florian Olivo
 ---
 
 {% for post in paginator.posts %}
@@ -15,13 +17,7 @@ background: '/img/bg-post.jpg'
     <h3 class="post-subtitle">{{ post.excerpt | strip_html | truncatewords: 15 }}</h3>
     {% endif %}
   </a>
-  <p class="post-meta">Posted by
-    {% if post.author %}
-    {{ post.author }}
-    {% else %}
-    {{ site.author }}
-    {% endif %}
-    on {{ post.date | date: '%B %d, %Y' }} &middot; {% include read_time.html content=post.content %}
+  <p class="post-meta">Posted on {{ post.date | date: '%B %d, %Y' }} &middot; {% include read_time.html content=post.content %}
   </p>
 </article>
 
@@ -36,13 +32,22 @@ background: '/img/bg-post.jpg'
 
   {% if paginator.previous_page %}
   <a class="btn btn-primary float-left" href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&larr;
-    Newer<span class="d-none d-md-inline"> Posts</span></a>
+    Newer<span class="d-none d-md-inline"> Articles</span></a>
   {% endif %}
 
   {% if paginator.next_page %}
-  <a class="btn btn-primary float-right" href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Older<span class="d-none d-md-inline"> Posts</span> &rarr;</a>
+  <a class="btn btn-primary float-right" href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Older<span class="d-none d-md-inline"> Articles</span> &rarr;</a>
   {% endif %}
 
 </div>
 
+{% endif %}
+
+
+{% if page.imagecredit %}
+  <div class="container">
+    <div class="row">
+      <a class="photocredit" href="{{ page.imagelink }}">Main photo by {{ page.imagecredit }}</a>
+    </div>
+  </div>
 {% endif %}

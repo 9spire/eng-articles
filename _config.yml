@@ -1,16 +1,16 @@
-title:              9spiration
+title:              9spire
 email:              9spire@gmail.com
-description:        A travel blog
-author:             Rebecca
+description:        Adventures in Engineering
+author:             Rebecca Dittmar
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 
 # Social Profiles
 twitter_username:   
-github_username:    
+github_username:    9spire
 facebook_username:  
-instagram_username:  
-linkedin_username:
+instagram_username:  9spire
+linkedin_username: rebecca-dittmar
 
 # Style Update
 sass:
