@@ -1,0 +1,55 @@
+---
+layout: post
+title: "On Call"
+subtitle: "Misadventures in Pager Duty"
+date: 2021-05-01 12:00:00 -0400
+background: '/img/posts/05.jpg'
+---
+
+<h2>On Call</h2>
+<h5>Misadventures in Pager Duty</h5>
+
+<p>First time doing pager duty, with what I still call my "new job", despite having worked on this project for over a year, while concurrently keeping the prior project alive-ish. But that's another article altogether. </p>
+
+<p>I signed up online and set up the schedule to include myself and two other new-ish folks to the on call rotation, and totally forgot about it. Two weeks later, Slack notified me that I was on call. I turned on notifications in the support channel so I wouldn’t miss anything and with no small amount of dread, waited and worked. </p>
+    
+<p>The first notice came at 10:30pm. I was already in bed when my phone binged. I read the request. Someone in Japan wasn’t getting the test content that they wanted to preview before sending to actual customers (100? 1000? 10,000? More?). It sounded important. The Slackbot had been set up - thank goodness - to send links to the Splunk logs on this specific communication. </p>
+    
+<p>I was immediately grateful to past-me, who had thoughtfully requested access to Splunk weeks ago. I had been interviewing with a monitoring company, I knew I had pager duty coming up, plus it’s always good to see under the hood. I clicked on the links and dashboards loaded with details about the 4+ application services this communication had used to be set up. Content was there. Audience was there. Shoot, everything looked like it should work. </p>
+    
+<p>I responded in the support channel, “Everything looks good on this end”. The previously frustrated user pinged back, “I figured it out, thanks for looking”. </p>
+    
+<p>Breathing a sigh of relief, I turned out my light and hoped the rest of the week on call would go this well.</p>
+
+<img class="img-fluid" src="/img/posts/pager.jpeg" alt="Pager in the Wild">
+<span class="caption text-muted">Pager duty. <a href="https://www.flickr.com/photos/echo_1123/7383425766/" target="_blank">Image credit</a></span>
+
+<h5>Spoiler alert: the rest of the week did NOT go that well.</h5>
+
+<p>Sure, almost all questions and issues were handled either by on call personnel in other teams when the issue related to their work, or by the all mighty Slackbot. I was even helpful on a couple of occasions. </p>
+
+<p>Then Monday happened. </p>
+    
+<p>My on-call ended on Wednesday morning, I was so close to getting through without a 4 alarm fire, when our Jenkins instance stopped building with a less-than-helpful error message.</p>
+
+<img class="img-fluid" src="/img/posts/Error.png" alt="Less than helpful error">
+<span class="caption text-muted">Less than helpful error message</span>
+
+<p>Teaming up with others, we tracked down the message as relating to the service user. Simple, right? Not quite. All continuous integration was halted. No CD happened. Which turned out to be in my on-call favor, since everyone on the team had a stake in making sure this was fixed. </p>
+
+<p>I did turn off my computer on Monday evening at 8pm, with only one other person working with me on getting that service user account password updated and verified. I was up at 6am and online running tests while the electric tea kettle started to make my first cup of coffee water.</p>
+
+<p>I took down nodes and restarted services. I ran test commits. 22 hours of work later in 2 days, and we had builds running again.</p>
+
+<img class="img-fluid" src="/img/posts/JenkinsDownEdit.png" alt="Jenkins is Down">
+<span class="caption text-muted">Jenkins is Down</span>
+
+<h5>Whew! </h5>
+
+<p>Do I know why? Ummmmm, no. There wasn’t a clear action with a clear resolution. Just one time when I did a push, the build started. It could have been any number of things that got that user account reset - even something I had done. </p>
+
+<p>Just in time to migrate to another version control solution that didn’t require the service user account password.</p>
+
+<img class="img-fluid" src="/img/posts/hassan-ouajbir-N4-gF71z2-4-unsplash.jpg" alt="Sand in the wind">
+<span class="caption text-muted">Sand in the Wind. Photo by <a href="https://unsplash.com/@hazardos?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Hassan OUAJBIR</a> on <a href="https://unsplash.com/s/photos/sand-wind?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+</span>
