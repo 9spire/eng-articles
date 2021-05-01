@@ -36,6 +36,15 @@ a {
   }
 }
 
+.small {
+  font-size: 0.8em;
+  line-height: 0.8;
+}
+
+.italic {
+  font-style: italic;
+}
+
 blockquote {
   font-style: italic;
   color: $gray-600;
@@ -56,6 +65,71 @@ blockquote {
   text-align: center;
   border-bottom-right-radius: 5px;
   border-bottom-left-radius: 5px;
+}
+
+hr{
+  
+  border: 0;
+  height: 1px;
+  width: 10%;
+  position: relative;
+  margin: 30px auto;
+  
+  
+  &.center-ball{
+    background: $gray-600;
+    
+    &:before{
+      content: "";
+      width: 6px;
+      height: 6px;
+      background: $gray-600;
+      display: inline-block;
+      border: 2px solid $gray-600;
+      border-radius: 50%;
+      position: absolute;
+      top: -4px;
+      left: 50%;
+      margin: 0 0 0 -3px;
+    }
+  }
+  
+  &.center-diamond{
+    background: $gray-400;
+    
+    &:before{
+      content: "";
+      width: 6px;
+      height: 6px;
+      background: $gray-400;
+      display: inline-block;
+      border: 2px solid $gray-400;
+      position: absolute;
+      top: -3px;
+      left: 50%;
+      margin: 0 0 0 -3px;
+      transform:rotate(45deg);
+      -ms-transform:rotate(45deg); /* IE 9 */
+      -webkit-transform:rotate(45deg); /* Opera, Chrome, and Safari */
+    }
+  }
+  
+  &.center-star{
+    background: $gray-600;
+    
+    &:before{
+      content: "★";
+      color: $gray-600;
+      display: inline-block;
+      position: absolute;
+      top: 0px;
+      left: 50%;
+      margin: 0 0 0 -3px;
+      font-size: 15px;
+      line-height: 0;
+      text-shadow: 0 0 3px lighten($gray-600, 5%);
+    }
+  }
 }
 
 .preamble {
